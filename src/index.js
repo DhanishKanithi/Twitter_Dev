@@ -45,6 +45,12 @@ app.listen(3000, async () => {
     // const tweet = await tweetRepo.get('676ba4ee126b20c8ba054005');
     // console.log(tweet);     // Does not populate the comment. i.e: Just displays comment's object ID inside a document
 
-    const tweet = await tweetRepo.getWithComments('676ba4ee126b20c8ba054005');
-    console.log(tweet); // Now the comments section will be populated.. As we have specified .populate({path: 'comments'}) 
+    // const tweet = await tweetRepo.getWithComments('676ba4ee126b20c8ba054005');
+    // console.log(tweet); // Now the comments section will be populated.. As we have specified .populate({path: 'comments'}) 
+
+    // const tweet = await tweetRepo.getAll(2,4);
+    // console.log(tweet);     // Implementing offset and limit in pagination. i.e displaying first four or first four skipping first 2.
+
+    const tweet = await tweetRepo.getAll();
+    console.log(tweet[0].contentWithEmail); 
 });
