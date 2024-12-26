@@ -5,6 +5,7 @@ const app = express();
 
 const TweetRepository = require('./repository/tweet-repository');
 const Comment = require('./models/comment')
+const Tweet = require('./models/tweet')
 
 app.listen(3000, async () => {
     console.log('Server started on PORT: 3000' );
@@ -18,7 +19,7 @@ app.listen(3000, async () => {
     // const tweets = await Tweet.find();
     // console.log(tweets);
 
-    const tweetRepo = new TweetRepository();
+    // const tweetRepo = new TweetRepository();
 
    //  const tweet = await tweetRepo.get('67542712a54db54c82fccc54');
 
@@ -57,4 +58,9 @@ app.listen(3000, async () => {
     // const tweet = await tweetRepo.create({content: 'This is a tweet with hooks'});
     // console.log(tweet);     // Implementing hooks
     
+    const tweets = await Tweet.find({
+        content:  ['First tweet', 'my tweet', 'new latest content']
+    });
+
+    console.log(tweets);
 });
