@@ -51,6 +51,10 @@ app.listen(3000, async () => {
     // const tweet = await tweetRepo.getAll(2,4);
     // console.log(tweet);     // Implementing offset and limit in pagination. i.e displaying first four or first four skipping first 2.
 
-    const tweet = await tweetRepo.getAll();
-    console.log(tweet[0].contentWithEmail); 
+    // const tweet = await tweetRepo.getAll();
+    // console.log(tweet[0].contentWithEmail);     // Implementing virtuals 
+
+    // const tweet = await tweetRepo.create({content: 'This is a tweet with hooks'});
+    // console.log(tweet);     // Implementing hooks
+    
 });
