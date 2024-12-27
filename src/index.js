@@ -3,11 +3,11 @@ const connect = require('./config/database');
 
 const app = express();
 
-//  const TweetRepository = require('./repository/tweet-repository');
-//  const TweetService = require('./services/tweet-service');
+  const TweetRepository = require('./repository/tweet-repository');
+  const TweetService = require('./services/tweet-service');
 // const Comment = require('./models/comment')
-// const Tweet = require('./models/tweet')
-// const HashtagRepository = require('./repository/hashtag-repository');
+ const Tweet = require('./models/tweet')
+ const HashtagRepository = require('./repository/hashtag-repository');
 
 
 app.listen(3000, async () => {
@@ -93,9 +93,9 @@ app.listen(3000, async () => {
     // response = response.map(tags => tags.title);
     // console.log(response);
 
-    // const service = new TweetService();
-    // const tweet = await service.create({
-    //     content: 'My favorite #film is #Salaar and watching it is #fun'
-    // });
-    console.log(tweet);
+    const service = new TweetService();
+    const tweet = await service.create({
+        content: 'My favorite #film is #Salaar and watching it is #fun'
+    });
+    // console.log(tweet);
 });

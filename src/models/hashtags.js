@@ -13,5 +13,10 @@ const hashTagSchema = new mongoose.Schema({
     ]
 }, {timestamps: true});
 
+hashTagSchema.pre('save', function (next) {
+     this.title = this.title.toLowerCase();
+     next();
+})
+
 const Hashtag = mongoose.model('Hashtag', hashTagSchema);
 module.exports = Hashtag;
