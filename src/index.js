@@ -1,7 +1,14 @@
 const express = require('express');
 const connect = require('./config/database');
+const bodyParser = require('body-parser');
+
+const apiRoutes = require('./routes/index');
 
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use('/api', apiRoutes);
 
   const TweetRepository = require('./repository/tweet-repository');
   const TweetService = require('./services/tweet-service');
@@ -93,9 +100,9 @@ app.listen(3000, async () => {
     // response = response.map(tags => tags.title);
     // console.log(response);
 
-    const service = new TweetService();
-    const tweet = await service.create({
-        content: 'My favorite #film is #Salaar and watching it is #fun'
-    });
+    // const service = new TweetService();
+    // const tweet = await service.create({
+    //     content: 'My 2nd favorite film is #KGF2 and watching it is fun'
+    // });
     // console.log(tweet);
 });
