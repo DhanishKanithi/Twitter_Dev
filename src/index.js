@@ -3,9 +3,12 @@ const connect = require('./config/database');
 
 const app = express();
 
-const TweetRepository = require('./repository/tweet-repository');
-const Comment = require('./models/comment')
-const Tweet = require('./models/tweet')
+//  const TweetRepository = require('./repository/tweet-repository');
+//  const TweetService = require('./services/tweet-service');
+// const Comment = require('./models/comment')
+// const Tweet = require('./models/tweet')
+// const HashtagRepository = require('./repository/hashtag-repository');
+
 
 app.listen(3000, async () => {
     console.log('Server started on PORT: 3000' );
@@ -58,9 +61,41 @@ app.listen(3000, async () => {
     // const tweet = await tweetRepo.create({content: 'This is a tweet with hooks'});
     // console.log(tweet);     // Implementing hooks
     
-    const tweets = await Tweet.find({
-        content:  ['First tweet', 'my tweet', 'new latest content']
-    });
+    // const tweets = await Tweet.find({
+    //     content:  ['First tweet', 'my tweet', 'new latest content']
+    // });
+    // console.log(tweets);
 
-    console.log(tweets);
+
+    // let repo = new HashtagRepository();
+    // await repo.bulkCreate([
+    //     {
+    //         title: 'Trend',
+    //         tweets: []
+    //     }, 
+    //     {
+    //         title: 'Excited',
+    //         tweets: []
+    //     },
+    //     {
+    //         title: 'Python',
+    //         tweets: []
+    //     },
+    //     {
+    //         title: 'Fun',
+    //         tweets: []
+    //     }
+    // ]); 
+
+    // let repo = new HashtagRepository();
+    // let response = await repo.findByName(['Excited', 'Trend']);
+    // // console.log(response);
+    // response = response.map(tags => tags.title);
+    // console.log(response);
+
+    // const service = new TweetService();
+    // const tweet = await service.create({
+    //     content: 'My favorite #film is #Salaar and watching it is #fun'
+    // });
+    console.log(tweet);
 });
