@@ -10,12 +10,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use('/api', apiRoutes);
 
-  const TweetRepository = require('./repository/tweet-repository');
-  const TweetService = require('./services/tweet-service');
+ const TweetRepository = require('./repository/tweet-repository');
+// const TweetService = require('./services/tweet-service');
 // const Comment = require('./models/comment')
- const Tweet = require('./models/tweet')
- const HashtagRepository = require('./repository/hashtag-repository');
-
+// const Tweet = require('./models/tweet')
+// const HashtagRepository = require('./repository/hashtag-repository');
+const {UserRepository} = require('./repository/index');
+const LikeService = require('./services/like-service');
 
 app.listen(3000, async () => {
     console.log('Server started on PORT: 3000' );
@@ -105,4 +106,18 @@ app.listen(3000, async () => {
     //     content: 'My 2nd favorite film is #KGF2 and watching it is fun'
     // });
     // console.log(tweet);
+
+    const userRepo = new UserRepository();
+    const tweetRepo = new TweetRepository()
+    const tweets = await tweetRepo.getAll(0,10);
+    const users = await userRepo.getAll();
+    // const user = await userRepo.create({
+    //   email: 'nitish@admin.com',
+    //   password: 'Nitish@123',
+    //   name: 'Nitish Kumar Reddy'
+    // });
+
+    const likeService = new LikeService();
+    await likeService.toggleLike(tweets[0].id, 'Tweet', users[0].id);
+
 });
