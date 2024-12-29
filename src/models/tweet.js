@@ -22,12 +22,12 @@ const tweetSchema = new mongoose.Schema({
     // userEmail: {
     //     type: String
     // },
-    // comments: [
-    //     {
-    //         type: mongoose.Schema.ObjectId,
-    //         ref: 'Comment'
-    //     }
-    // ]
+    comments: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Comment'
+        }
+    ]
 }, {timestamps: true});
 
 // tweetSchema.virtual('contentWithEmail').get(function process() {

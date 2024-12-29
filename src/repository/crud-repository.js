@@ -25,7 +25,7 @@ class CrudRepository {
 
     async get(id) {
         try {
-            const result = await this.model.findById(id).populate({path: 'likes'});
+            const result = await this.model.findById(id)//.populate({path: 'likes'});
             return result;
         } catch (error) {
             console.log('Something went wrong in the crud repo');
