@@ -12,6 +12,9 @@ const tweetSchema = new mongoose.Schema({
             ref: 'Like'
         }
     ],
+    image: {
+            type: String
+        },
     // hashtags: [
     //     {
     //         type: mongoose.Schema.Types.ObjectId,

@@ -8,7 +8,11 @@ const router = express.Router();
 
 const {authenticate} = require('../../middlewares/authenticate');
 
-router.post('/tweets', authenticate, createTweet);
+// const upload = require('../../config/file-upload-s3-config');
+
+// const singleUploader = upload.single('image');
+
+router.post('/tweets', createTweet);
 router.get('/tweets/:id', getTweet);
 
 router.post('/likes/toggle', toggleLike ); 
