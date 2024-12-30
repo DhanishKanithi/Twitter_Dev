@@ -4,19 +4,24 @@ const tweetService = new TweetService();
 
 const createTweet = async (req,res) => {
     try {
+        // console.log('inside create tweet');
+        // console.log(req.body);
         const response = await tweetService.create(req.body);
+       // console.log(response);
+
         return res.status(201).json({
             success: true,
             message: 'Successfully created a new tweet',
-            data: response,
-            err: {}
+             data: response,
+             err: {}
         });
     } catch (error) {
+        console.log(error);
         return res.status(500).json({
             success: false,
             message: 'Failed to create a new tweet',
-            data: response,
-            err: {}
+             data: {},
+            err: error
         });
     }
 }

@@ -1,6 +1,8 @@
 const express = require('express');
 const connect = require('./config/database');
+const { passportAuth } = require('./config/jwt-middleware');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 const apiRoutes = require('./routes/index');
 
@@ -8,6 +10,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.use(passport.initialize());
+passportAuth(passport);
+
 app.use('/api', apiRoutes);
 
  const TweetRepository = require('./repository/tweet-repository');
