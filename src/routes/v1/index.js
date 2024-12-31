@@ -12,7 +12,7 @@ const {authenticate} = require('../../middlewares/authenticate');
 
 // const singleUploader = upload.single('image');
 
-router.post('/tweets', createTweet);
+router.post('/tweets', /*authenticate,*/ createTweet);
 router.get('/tweets/:id', getTweet);
 
 router.post('/likes/toggle', toggleLike ); 
